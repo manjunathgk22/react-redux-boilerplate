@@ -8,13 +8,15 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import App from './App.jsx';
-import configureStore from './configureStore';
+import configureStore, { sagaMiddleware } from './configureStore';
+import rootSaga from './saga/saga';
 import './styles/global.scss';
-import 'antd/dist/antd.css';
 
-const initialState = {};
+const initialState = { abc: 'sdkjsdkjh' };
 const store = configureStore(initialState);
 const MOUNT_NODE = document.getElementById('root');
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>

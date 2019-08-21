@@ -1,15 +1,14 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import { Spin } from 'antd';
 
-const Loading = () => <Spin />;
+const Loading = () => <div>Loading...</div>;
 
 export default [
   {
     exact: true,
     path: '/',
     component: Loadable({
-      loader: () => import(/* webpackChunkName: "home", webpackMode: "lazy" */ '../component/Home'),
+      loader: () => import(/* webpackChunkName: "home", webpackMode: "lazy" */ '../container/Home'),
       loading: Loading
     })
   },

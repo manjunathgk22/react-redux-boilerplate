@@ -1,9 +1,11 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import reducer from './reducers';
+import createSagaMiddleware from 'redux-saga';
+import reducer from './reducers/index';
+
+export const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore(initialState = {}) {
-  const middlewares = [thunk];
+  const middlewares = [sagaMiddleware];
   const enhancers = [applyMiddleware(...middlewares)];
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
   /* eslint-disable no-underscore-dangle */

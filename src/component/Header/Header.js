@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Layout } from 'antd';
 
-const { Header } = Layout;
+// const { Header } = Layout;
 
 const LEFT_NAV_ITEMS = [
   {
     id: 'home',
-    label: 'Home',
+    label: 'Home Work',
     path: '/'
   },
   {
@@ -23,16 +22,17 @@ const LEFT_NAV_ITEMS = [
 ];
 
 const AppHeader = () => (
-  <Header className='header'>
+  // <Link to={navItem.path}>{navItem.label}</Link>
+  <header className='header'>
     <div className='logo' />
-    <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['home']} style={{ lineHeight: '64px' }}>
+    <div theme='dark' mode='horizontal' defaultSelectedKeys={['home']} style={{ lineHeight: '64px' }}>
       {LEFT_NAV_ITEMS.map((navItem) => (
-        <Menu.Item key={navItem.id}>
+        <div key={navItem.id}>
           <Link to={navItem.path}>{navItem.label}</Link>
-        </Menu.Item>
+        </div>
       ))}
-    </Menu>
-  </Header>
+    </div>
+  </header>
 );
 
 export default AppHeader;
